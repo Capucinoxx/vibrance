@@ -2,7 +2,6 @@ package event
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/Capucinoxx/vibrance/server/model"
@@ -44,7 +43,6 @@ func (h handler) listEvent() http.HandlerFunc {
 			return
 		}
 
-		fmt.Println(events)
 		response.Write(w, http.StatusOK, response.Response{Data: events})
 	}
 }
