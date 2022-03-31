@@ -9,6 +9,15 @@ const (
 	unmarshallingError = `{"error": "an error occurred during the response please try again"}`
 )
 
+type Response struct {
+	Data  interface{} `json:"data"`
+	Error interface{} `json:"error"`
+}
+
+func String(str string) *string {
+	return &str
+}
+
 func Write(w http.ResponseWriter, statusCode int, data interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 

@@ -9,9 +9,9 @@ type Event struct {
 }
 
 type Events struct {
-	From   time.Time          `json:"from"`
-	To     time.Time          `json:"to"`
-	Events map[string][]Event `json:"events"`
+	From   time.Time `json:"from"`
+	To     time.Time `json:"to"`
+	Events []Event   `json:"events"`
 }
 
 type ListEventsInput struct {

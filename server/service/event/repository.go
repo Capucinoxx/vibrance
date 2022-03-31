@@ -17,5 +17,9 @@ func NewRepository() Repository {
 }
 
 func (m repository) Events(from, to time.Time) (model.Events, error) {
-	return model.Events{}, nil
+	return model.Events{
+		Events: []model.Event{
+			{At: time.Now(), From: "12:00", To: "13:30"},
+		},
+	}, nil
 }
