@@ -1,0 +1,90 @@
+/* calendar style section */
+.calendar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar--hero {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: .5em 1em 1em 1em;
+}
+
+.calendar--hero .close {
+  overflow: hidden;
+	position: relative;
+	border: none;
+	padding: 0;
+	width: 2em; height: 2em;
+	border-radius: 50%;
+	background: transparent;
+	color: rgb(19, 149, 65);
+	font: inherit;
+	text-indent: 100%;
+	cursor: pointer;
+}
+
+.calendar--hero .close:before, .calendar--hero .close:after {
+  content: '';
+  position: absolute;
+  top: 15%; 
+  left: calc(50% - .0625em);
+  width: .125em; height: 70%;
+  border-radius: .125em;
+  transform: rotate(45deg);
+  background: currentcolor;
+}
+
+.calendar--hero .close:after { transform: rotate(-45deg); }
+
+.calendar--hero .close:focus {
+  outline: solid 0 transparent;
+	box-shadow: 0 0 0 2px rgb(19, 149, 65);
+}
+
+.calendar--days {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  background: #F2F3F2;
+}
+
+.calendar--day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: span 2;
+  border-left: 1px solid #e6e5e6;
+}
+
+.calendar--body {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(28, 1fr);
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.calendar--vertical-line {
+  grid-column: 2 / span 10;
+  grid-row: var(--row) / span var(--span, 2);
+  border-bottom: 1px solid #F2F3F2;
+}
+
+.calendar--horizontal-line {
+  grid-column: var(--col) / span 2;
+  grid-row: 1 / span 28;
+  border-left: 1px solid #F2F3F2;
+}
+
+.calendar--hour {
+  grid-column: 1;
+  grid-row: var(--row) / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #F2F3F2;
+}
