@@ -136,3 +136,24 @@ body {
 .calendar--hour, .calendar--day {
   padding: .55em;
 }
+
+.event {
+  grid-row: var(--row-start) / span var(--duration);
+  grid-column: var(--col) / span 2;
+  padding: 2px;
+  background: white;
+}
+
+.event > div {
+  background: rgba(19, 149, 65, .25);
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 2px solid rgb(19, 149, 65);
+  display: flex;
+  align-items: center;
+  font-size: .8em;
+  justify-content: space-around;
+  color: rgb(19, 149, 65);
+  font-weight: 700;
+}
