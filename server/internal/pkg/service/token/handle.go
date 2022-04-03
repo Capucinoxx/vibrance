@@ -1,9 +1,12 @@
 package token
 
 import (
+	"encoding/json"
+	"fmt"
 	"net/http"
 	"time"
 
+	"github.com/Capucinoxx/vibrance/internal/pkg/common/oauth"
 	"github.com/Capucinoxx/vibrance/internal/pkg/common/router"
 	"github.com/gocql/gocql"
 )
@@ -27,9 +30,35 @@ func Handle(conn *gocql.Session, timeout time.Duration) router.Router {
 	return r
 }
 
+type CreateInput struct {
+	Key string `json:"key"`
+}
+
 func (h handler) create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("route token_create is not implemented"))
+		decoder := json.NewDecoder(r.Body)
+		defer func() {
+			if err := r.Body.Close(); err != nil {
+				fmt.Print(err)
+				return
+			}
+		}()
+
+		var in CreateInput
+		if err := decoder.Decode(&in); err != nil {
+			fmt.Print(err)
+			return
+		}
+
+		accessToken := oauth.GenerateToken(in.Key, oauth.TokenTTLAccess, nil)
+		refreshToken := oauth.GenerateToken(in.Key, oauth.TokenTTLRefresh, nil)
+
+		if err := h.repo.Create(r.Context(), accessToken, refreshToken); err != nil {
+			fmt.Printf("create token: %s", err)
+			return
+		}
+
+		fmt.Println("create token: ok")
 	}
 }
 
