@@ -2,7 +2,7 @@ version: "3.7"
  
 services:
  
-  auth-cassandra:
+  cdb:
     image: "cassandra:3.11.9"
     container_name: "cdb"
     ports:
