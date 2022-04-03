@@ -1,9 +1,15 @@
 package cassandra
 
 import (
+	"errors"
 	"time"
 
 	"github.com/gocql/gocql"
+)
+
+var (
+	ErrDuplication = errors.New("duplicated record")
+	ErrNotFound    = errors.New("record not found")
 )
 
 type Config struct {
