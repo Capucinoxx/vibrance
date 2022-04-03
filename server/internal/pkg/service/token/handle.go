@@ -29,24 +29,24 @@ func Handle(conn *gocql.Session, timeout time.Duration) router.Router {
 
 func (h handler) create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		w.Write([]byte("route token_create is not implemented"))
 	}
 }
 
 func (h handler) refresh() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		w.Write([]byte("route token_refresh is not implemented"))
 	}
 }
 
 func (h handler) revoke() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		w.Write([]byte("route token_revoke is not implemented"))
 	}
 }
 
 func (h handler) find() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		w.Write([]byte("route token_find is not implemented"))
 	}
 }

@@ -30,30 +30,30 @@ func Handle(conn *gocql.Session, timeout time.Duration) router.Router {
 
 func (h handler) create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		w.Write([]byte("route client_create is not implemented"))
 	}
 }
 
 func (h handler) find() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		w.Write([]byte("route client_find is not implemented"))
 	}
 }
 
 func (h handler) updateSecret() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		w.Write([]byte("route client_updateSecret is not implemented"))
 	}
 }
 
 func (h handler) softDelete() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		w.Write([]byte("route client_softDelete is not implemented"))
 	}
 }
 
 func (h handler) delete() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
+		w.Write([]byte("route client_delete is not implemented"))
 	}
 }
